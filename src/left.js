@@ -90,7 +90,7 @@ class Left extends Component {
       style={{ 
         width: this.props.layout.left ? '400px' : '30px' 
         }}>
-         <h5>DATASETS & FILTERS</h5>
+        <h3>DATASETS & FILTERS</h3>
         <div className="dataCont" style={{ opacity: this.props.layout.left ? 1 : 0 }}>
         <h2>DataSets</h2>
         <div className="DatasetList">
@@ -99,6 +99,11 @@ class Left extends Component {
             <div className="dataset" key={i}>
               <div className="dlBtn" id={i} onClick={this.downloadData}>
                 <i className="fas fa-download" aria-hidden="false"></i>
+              </div>
+              <div className="rBtn" id={i}>
+                <a href={`https://www.reddit.com/${set.user}`} target="_blank">
+                  <i className="fab fa-reddit-alien" aria-hidden="false"></i>
+                </a>
               </div>
               <h5>{set.name}</h5>
               <p>{set.user}</p>

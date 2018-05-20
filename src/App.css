@@ -24,34 +24,60 @@ html, body {
     width: 180px;
     top: 56px; }
     .App .Left h2 {
-      transform: rotate(270deg);
       width: 300px;
       margin: 0;
       height: 20px;
       pointer-events: none; }
-    .App .Left .DatasetList {
-      border: 1px solid blue; }
-      .App .Left .DatasetList .dataset {
-        width: 90%;
-        height: 100px;
-        font-size: 16px;
-        margin: 0 auto;
-        border: 1px solid #212121; }
-        .App .Left .DatasetList .dataset h5, .App .Left .DatasetList .dataset p {
-          margin: 2px auto; }
-        .App .Left .DatasetList .dataset .dlBtn {
-          border: 1px solid white;
-          height: 25px;
-          width: 25px;
-          transition: 0.3s all;
-          margin: 5px;
-          border-radius: 4px; }
-          .App .Left .DatasetList .dataset .dlBtn i, .App .Left .DatasetList .dataset .dlBtn .fas, .App .Left .DatasetList .dataset .dlBtn .fa-download {
-            pointer-events: none; }
-        .App .Left .DatasetList .dataset .dlBtn:hover {
-          background: white;
-          color: green;
-          transition: 0.3s all; }
+    .App .Left h3 {
+      transform: rotate(270deg); }
+    .App .Left .DatasetList .dataset {
+      width: 95%;
+      height: 100px;
+      font-size: 16px;
+      margin: 3px auto;
+      border: 1px solid #212121;
+      border-radius: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 4px; }
+      .App .Left .DatasetList .dataset h5, .App .Left .DatasetList .dataset p {
+        margin: 2px auto;
+        width: 100%;
+        text-align: right; }
+      .App .Left .DatasetList .dataset h5 {
+        border-bottom: 1px solid white; }
+      .App .Left .DatasetList .dataset .dlBtn {
+        border: 1px solid white;
+        height: 25px;
+        width: 25px;
+        transition: 0.3s all;
+        margin: 5px;
+        border-radius: 4px;
+        position: absolute;
+        display: flex; }
+        .App .Left .DatasetList .dataset .dlBtn i, .App .Left .DatasetList .dataset .dlBtn .fas, .App .Left .DatasetList .dataset .dlBtn .fa-download {
+          pointer-events: none;
+          margin: auto; }
+      .App .Left .DatasetList .dataset .dlBtn:hover {
+        background: white;
+        color: green;
+        transition: 0.3s all; }
+      .App .Left .DatasetList .dataset .rBtn {
+        border: 1px solid white;
+        height: 25px;
+        width: 25px;
+        transition: 0.3s all;
+        margin: 5px 5px 5px 35px;
+        border-radius: 4px;
+        position: absolute;
+        display: flex; }
+        .App .Left .DatasetList .dataset .rBtn i, .App .Left .DatasetList .dataset .rBtn .fab, .App .Left .DatasetList .dataset .rBtn .fa-reddit-alien {
+          pointer-events: none;
+          margin: auto; }
+      .App .Left .DatasetList .dataset .rBtn:hover {
+        background: black;
+        color: orange;
+        transition: 0.3s all; }
   .App .Right {
     width: 30px;
     height: 100%;

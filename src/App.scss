@@ -27,22 +27,32 @@ html, body {
     width: 180px;
     top: 56px;
     h2 {
-      transform: rotate(270deg);
       width: 300px;
       margin: 0;
       height: 20px;
       pointer-events: none;
     }
+    h3 {
+      transform: rotate(270deg);
+    }
     .DatasetList {
-      border: 1px solid blue;
       .dataset {
-        width: 90%;
+        width: 95%;
         height: 100px;
         font-size: 16px;
-        margin: 0 auto;
+        margin: 3px auto;
         border: 1px solid #212121;
+        border-radius: 4px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 4px;
         h5, p {
           margin: 2px auto;
+          width: 100%;
+          text-align: right;
+        }
+        h5 {
+          border-bottom: 1px solid white;
         }
         .dlBtn {
           border: 1px solid white;
@@ -51,13 +61,35 @@ html, body {
           transition: 0.3s all;
           margin: 5px;
           border-radius: 4px;
+          position: absolute;
+          display: flex;
           i, .fas, .fa-download {
             pointer-events: none;
+            margin: auto;
           }
         }
         .dlBtn:hover {
           background: white;
           color: green;
+          transition: 0.3s all;
+        }
+        .rBtn {
+          border: 1px solid white;
+          height: 25px;
+          width: 25px;
+          transition: 0.3s all;
+          margin: 5px 5px 5px 35px;
+          border-radius: 4px;
+          position: absolute;
+          display: flex;
+          i, .fab, .fa-reddit-alien {
+            pointer-events: none;
+            margin: auto;
+          }
+        }
+        .rBtn:hover {
+          background: black;
+          color: orange;
           transition: 0.3s all;
         }
       }

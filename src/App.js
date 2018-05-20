@@ -21,7 +21,7 @@ import 'react-dropdown/style.css'
 // > Little dot could be center
 // > X could be center
 // > center could be center
-// > 
+// > CSS is in all caps but not inWP
 
 
 class App extends Component {
@@ -47,6 +47,7 @@ class App extends Component {
     this.onCenterChange = this.onCenterChange.bind(this);
     this.onLayoutChange = this.onLayoutChange.bind(this);
     this.crossHairSwitch = this.crossHairSwitch.bind(this);
+    this.onBackdropChange = this.onBackdropChange.bind(this);
   }
 
   // Rotates the entire canvas
@@ -71,7 +72,11 @@ class App extends Component {
     } if(e.target.id === 'foot') {
       layout.foot = this.state.layout.foot ? false : true
     }
-    this.setState({ layout })
+    this.setState({ layout });
+  }
+
+  onBackdropChange(e) {
+    console.log(e);
   }
 
   crossHairSwitch(e) {
@@ -84,7 +89,8 @@ class App extends Component {
     // console.log("85 Words: ", eightyFive.words);
     // console.log("innerBip: ", innerBip.words);
     // console.log("Clean Words: ", puzzleWords);
-    let centerPoints = [ 'true-center', 'X', 'B dot'];
+    let centerPoints = [ 'true-center', 'X', 'B dot'],
+        underlays = [  ]
     return (
       <div className="App">
 
@@ -123,6 +129,15 @@ class App extends Component {
 
          <div className="setting">
             <h6>Gridlines</h6>  
+          </div>
+
+         <div className="setting">
+            <h6>Fibbonacci</h6>  
+          </div>
+
+          <div className="setting">
+            <h6>Backdrop</h6>
+            <Dropdown options={underlays} onChange={this.onBackdropChange} value={this.state.underlay} placeholder="Select a header option" />
           </div>
           
       </div>
