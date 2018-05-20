@@ -32,6 +32,12 @@ class Right extends Component {
           <li>"It's solvable."</li>
           <li>"5 orientations between -60 & 60deg"</li>
         </ol>
+        <h2>Pairs</h2>
+        <ul>
+          <li>ALMOST OPEN</li>
+          <li>CODE EASILY</li>
+          <li>ATTACK EARLY</li>
+        </ul>
         </div>
 
       </div>

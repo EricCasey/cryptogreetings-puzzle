@@ -4,6 +4,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Work Sans', sans-serif;
+  background: black;
 }
 
 .App {
@@ -18,12 +19,49 @@ html, body {
     color: white;
     transition: 0.5s all;
     z-index: 10000000000;
+    border-radius: 4px;
   }
   .Left {
     left: 0px;
     height: calc(100% - 60px);
     width: 180px;
     top: 56px;
+    h2 {
+      transform: rotate(270deg);
+      width: 300px;
+      margin: 0;
+      height: 20px;
+      pointer-events: none;
+    }
+    .DatasetList {
+      border: 1px solid blue;
+      .dataset {
+        width: 90%;
+        height: 100px;
+        font-size: 16px;
+        margin: 0 auto;
+        border: 1px solid #212121;
+        h5, p {
+          margin: 2px auto;
+        }
+        .dlBtn {
+          border: 1px solid white;
+          height: 25px;
+          width: 25px;
+          transition: 0.3s all;
+          margin: 5px;
+          border-radius: 4px;
+          i, .fas, .fa-download {
+            pointer-events: none;
+          }
+        }
+        .dlBtn:hover {
+          background: white;
+          color: green;
+          transition: 0.3s all;
+        }
+      }
+    }
   }
   .Right {
     width: 30px;
@@ -33,7 +71,9 @@ html, body {
       pointer-events:none;
       transition: 0.5s all;
     }
-
+h5 {
+  transform: rotate(90deg);
+}
   }
   .Foot {
     bottom: 0px;
@@ -48,6 +88,8 @@ html, body {
     position: fixed;
     top: 0px;
     left: 0px;
+    background: black;
+    z-index: 10000000;
     .setting {
       border: 1px solid white;
       height: 45px;
@@ -56,6 +98,7 @@ html, body {
       display: flex;
       flex-wrap: wrap;
       color: white;
+      background: black;
       h6 {
         margin: 3px auto;
         height: 15px;
@@ -65,6 +108,7 @@ html, body {
         width: 99%;
         height: 20px;
         margin: 0 auto;
+        background: black;
       }
       .degInput {
         width: 20%;
@@ -73,6 +117,16 @@ html, body {
         border: 2px solid #212121;
         color: white;
         border-radius: 4px;
+      }
+      .Dropdown-root {
+        background: black;
+        border: 1px solid white;
+        height: 20px;
+        margin: 0 auto;
+        .Dropdown-control {
+          height: 20px;
+          font-size: 16px;
+        }
       }
     }
   }

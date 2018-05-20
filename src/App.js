@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import Left from './left.js';
@@ -39,13 +38,15 @@ class App extends Component {
       fibb: false,
       btcRotation: 0,
       bRotation: 0,
-      centerPoint: 'true-center'
+      centerPoint: 'true-center',
+      crossHair: true
     }
     this.rotateChange = this.rotateChange.bind(this);
     this.btcRotateChange = this.btcRotateChange.bind(this);
     this.bRotateChange = this.bRotateChange.bind(this);
     this.onCenterChange = this.onCenterChange.bind(this);
     this.onLayoutChange = this.onLayoutChange.bind(this);
+    this.crossHairSwitch = this.crossHairSwitch.bind(this);
   }
 
   // Rotates the entire canvas
@@ -73,12 +74,16 @@ class App extends Component {
     this.setState({ layout })
   }
 
+  crossHairSwitch(e) {
+    this.setState({ crossHair: this.state.crossHair ? false : true });
+  }
+
   render() {
-    console.log("State: ", this.state);
-    console.log("BIP-0039 Words: ", bip.words);
-    console.log("85 Words: ", eightyFive.words);
-    console.log("innerBip: ", innerBip.words);
-    console.log("Clean Words: ", puzzleWords);
+    // console.log("State: ", this.state);
+    // console.log("BIP-0039 Words: ", bip.words);
+    // console.log("85 Words: ", eightyFive.words);
+    // console.log("innerBip: ", innerBip.words);
+    // console.log("Clean Words: ", puzzleWords);
     let centerPoints = [ 'true-center', 'X', 'B dot'];
     return (
       <div className="App">

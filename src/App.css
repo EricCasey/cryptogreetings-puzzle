@@ -2,7 +2,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Work Sans', sans-serif; }
+  font-family: 'Work Sans', sans-serif;
+  background: black; }
 
 .App {
   text-align: center;
@@ -15,12 +16,42 @@ html, body {
     position: fixed;
     color: white;
     transition: 0.5s all;
-    z-index: 10000000000; }
+    z-index: 10000000000;
+    border-radius: 4px; }
   .App .Left {
     left: 0px;
     height: calc(100% - 60px);
     width: 180px;
     top: 56px; }
+    .App .Left h2 {
+      transform: rotate(270deg);
+      width: 300px;
+      margin: 0;
+      height: 20px;
+      pointer-events: none; }
+    .App .Left .DatasetList {
+      border: 1px solid blue; }
+      .App .Left .DatasetList .dataset {
+        width: 90%;
+        height: 100px;
+        font-size: 16px;
+        margin: 0 auto;
+        border: 1px solid #212121; }
+        .App .Left .DatasetList .dataset h5, .App .Left .DatasetList .dataset p {
+          margin: 2px auto; }
+        .App .Left .DatasetList .dataset .dlBtn {
+          border: 1px solid white;
+          height: 25px;
+          width: 25px;
+          transition: 0.3s all;
+          margin: 5px;
+          border-radius: 4px; }
+          .App .Left .DatasetList .dataset .dlBtn i, .App .Left .DatasetList .dataset .dlBtn .fas, .App .Left .DatasetList .dataset .dlBtn .fa-download {
+            pointer-events: none; }
+        .App .Left .DatasetList .dataset .dlBtn:hover {
+          background: white;
+          color: green;
+          transition: 0.3s all; }
   .App .Right {
     width: 30px;
     height: 100%;
@@ -28,6 +59,8 @@ html, body {
     .App .Right h2, .App .Right ol, .App .Right li, .App .Right .hintBox {
       pointer-events: none;
       transition: 0.5s all; }
+    .App .Right h5 {
+      transform: rotate(90deg); }
   .App .Foot {
     bottom: 0px;
     width: 100%;
@@ -39,7 +72,9 @@ html, body {
     display: flex;
     position: fixed;
     top: 0px;
-    left: 0px; }
+    left: 0px;
+    background: black;
+    z-index: 10000000; }
     .App #settings .setting {
       border: 1px solid white;
       height: 45px;
@@ -47,7 +82,8 @@ html, body {
       margin: auto;
       display: flex;
       flex-wrap: wrap;
-      color: white; }
+      color: white;
+      background: black; }
       .App #settings .setting h6 {
         margin: 3px auto;
         height: 15px;
@@ -55,7 +91,8 @@ html, body {
       .App #settings .setting input {
         width: 99%;
         height: 20px;
-        margin: 0 auto; }
+        margin: 0 auto;
+        background: black; }
       .App #settings .setting .degInput {
         width: 20%;
         margin: auto;
@@ -63,6 +100,14 @@ html, body {
         border: 2px solid #212121;
         color: white;
         border-radius: 4px; }
+      .App #settings .setting .Dropdown-root {
+        background: black;
+        border: 1px solid white;
+        height: 20px;
+        margin: 0 auto; }
+        .App #settings .setting .Dropdown-root .Dropdown-control {
+          height: 20px;
+          font-size: 16px; }
   .App #puzzleCont {
     margin: 0 auto;
     top: 0px;
