@@ -1,0 +1,132 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  display:flex;
+  flex-wrap: wrap;
+  height: 2000px;
+  width: 100%;
+  background: black;
+}
+
+#settings {
+  border: 2px solid lightgreen;
+  width: 100%;
+  height: 50px;
+  display: flex;
+}
+.setting {
+  border: 1px solid white;
+  height: 45px;
+  width: 300px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+}
+.setting h6 {
+  margin: 3px auto;
+  height: 15px;
+  width: 100%;
+}
+.setting input {
+  width: 90%;
+  height: 20px;
+  margin: 0 auto;
+}
+#puzzleCont {
+  margin: 0 auto;
+  display: flex;
+}
+#words {
+  width: 1080px;
+  height: 720px;
+  margin: -958px 0 0 0;
+  z-index: 10;
+  border: 1px solid green;
+  padding: 0;
+}
+#x {
+  color: red;
+  font-size: 100px;
+  position: absolute;
+  left: 100px;
+  bottom: 100px;
+}
+#btc {
+  width: 665px;
+  height: 665px;
+  opacity: 0.9;
+  position: absolute;
+  top: 92px;
+  border-radius: 50%;
+  z-index: 2;
+  overflow: hidden;
+  margin-left: 208px;
+  background: white;
+}
+#crossHair {
+  height: 5px;
+  width: 5px;
+  border: 1px solid red;
+  border-radius: 50%;
+  margin: auto;
+  z-index: 11;
+  position: absolute;
+  top: 418px;
+  left: calc(50% - 2.5px);
+}
+#crossHair #up {
+  height: 720px;
+  margin-top: -360px;
+  width: 0px;
+  border: 1px solid red;
+}
+#crossHair #ac {
+  height: 0px;
+  width: 1080px;
+  border: 1px solid red;
+  margin-top: -360px;
+  margin-left: -540px;
+}
+#btcOrange {
+  width: 660px;
+  height: 660px;
+  opacity: 0.5;
+  position: absolute;
+  top: 92px;
+  border-radius: 50%;
+  border: 1px solid red;
+  z-index: 3;
+  overflow: hidden;
+  margin-left: 208px;
+}
+#btcOrange img {
+  width: 100%;
+  height: 100%;
+}
+#puzzle {
+  height: 720px;
+  width: 1080px;
+  background: url("https://i.imgur.com/N84KCQg.png");
+  background-size: contain;
+  border: 2px solid black;
+  border-radius: 4px;
+  margin: 0 auto;
+  /* display: flex; */
+  position: absolute;
+  top: 60px;
+  z-index: 1;
+}
+
+#words .word {
+  color: red;
+}
+
+/* @keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} */
