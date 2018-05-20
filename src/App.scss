@@ -238,10 +238,20 @@ h5 {
       width: 100%;
       height: 100%;
     }
+    #overlay {
+      height: 720px;
+      width: 1080px;
+      border: 10px solid white;
+      border-radius: 4px;
+      margin: 0 auto;
+      position: absolute;
+      top: 60px;
+      z-index: 1;
+    }
     #puzzle {
       height: 720px;
       width: 1080px;
-      background: url("https://i.imgur.com/N84KCQg.png");
+      // background: url("https://i.imgur.com/N84KCQg.png");
       background-size: contain;
       border: 2px solid black;
       border-radius: 4px;
@@ -250,6 +260,27 @@ h5 {
       position: absolute;
       top: 60px;
       z-index: 1;
+    }
+    .underlay1 {
+      background: url('https://i.imgur.com/N84KCQg.png');
+    }
+    .underlay2 {
+      background: url('https://i.imgur.com/4zHZ7en.jpg');
+    }
+    .underlay3 {
+      background: url('https://i.imgur.com/7QZDtId.jpg');
+    }
+    .underlay4 {
+      background: url('https://imgur.com/a/VhVLr1P');
+    }
+    .underlay5 {
+      background: url('https://i.imgur.com/U50NzaQ.jpg');
+    }
+    .underlay6 {
+      background: url('https://image.ibb.co/b8wS6T/highlighted.png');
+    }
+    .underlay7 {
+      background: url('https://i.imgur.com/QnxYVHy.png');
     }
   }
 }

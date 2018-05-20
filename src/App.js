@@ -7,7 +7,7 @@ import Foot from './foot.js';
 
 import bip from './objects/bip39.js'; // 
 import eightyFive from './objects/85-words'; // u/toshiromiballza
-import innerBip from './objects/inner-bip39'; // u/eywede
+import innerBip from './objects/innerbip'; // u/eywede
 
 import puzzleWords from './objects/all-words'; // CLEAN LIST
 
@@ -39,7 +39,8 @@ class App extends Component {
       btcRotation: 0,
       bRotation: 0,
       centerPoint: 'true-center',
-      crossHair: true
+      crossHair: true,
+      underlay: 'underlay1'
     }
     this.rotateChange = this.rotateChange.bind(this);
     this.btcRotateChange = this.btcRotateChange.bind(this);
@@ -77,6 +78,7 @@ class App extends Component {
 
   onBackdropChange(e) {
     console.log(e);
+    this.setState({ underlay: e.value })
   }
 
   crossHairSwitch(e) {
@@ -90,7 +92,49 @@ class App extends Component {
     // console.log("innerBip: ", innerBip.words);
     // console.log("Clean Words: ", puzzleWords);
     let centerPoints = [ 'true-center', 'X', 'B dot'],
-        underlays = [  ]
+        underlays = [ 
+          { 
+            value: 'underlay1', 
+            label: 'u/casey_works',
+            class: 'underlay1'
+          },
+          { 
+            value: 'underlay2', 
+            label: 'u/Zyntra',
+            class: 'underlay2'
+          },
+          { 
+            value: 'underlay3', 
+            label: 'u/kit_hod_jao',
+            class: 'underlay3'
+          },
+          { 
+            value: 'underlay4', 
+            label: 'u/ANiMARelics',
+            class: 'underlay4'
+          },
+          { 
+            value: 'underlay5', 
+            label: 'u/chipper256',
+            class: 'underlay5'
+          },
+          { 
+            value: 'underlay6', 
+            label: 'u/CodeSpartan',
+            class: 'underlay6'
+          },
+          { 
+            value: 'underlay7', 
+            label: 'u/coinhodler',
+            class: 'underlay7'
+          }
+         ],
+         overlays = [ 
+           {
+            value: '',
+            label: ''
+            }
+         ]
     return (
       <div className="App">
 
@@ -136,8 +180,13 @@ class App extends Component {
           </div>
 
           <div className="setting">
-            <h6>Backdrop</h6>
-            <Dropdown options={underlays} onChange={this.onBackdropChange} value={this.state.underlay} placeholder="Select a header option" />
+            <h6>Underlay</h6>
+            <Dropdown options={underlays} onChange={this.onBackdropChange} value={this.state.underlay} placeholder="Select an Underlay" />
+          </div>
+
+         <div className="setting">
+            <h6>Overlay</h6>
+            <Dropdown options={overlays} onChange={this.onOverlayChange} value={this.state.overlay} placeholder="Select an Overlay" />
           </div>
           
       </div>
@@ -176,7 +225,9 @@ class App extends Component {
         <img src={btcLogoSVG} alt="blah" />
       </div>
 
-      <div id="puzzle" style={{ transform: `rotate(${this.state.rotation}deg)` }}></div>
+      <div id="overlay"></div>
+
+      <div id="puzzle" className={this.state.underlay} style={{ transform: `rotate(${this.state.rotation}deg)` }}></div>
 
     </div>
 

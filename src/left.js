@@ -3,7 +3,7 @@ import './App.css';
 
 import bip from './objects/bip39.js'; // 
 import eightyFive from './objects/85-words'; // u/toshiromiballza
-import innerBip from './objects/inner-bip39'; // u/eywede
+import innerBip from './objects/innerbip'; // u/eywede
 
 const dataSets = [
   { 
@@ -37,10 +37,11 @@ const dataSets = [
    },
    { 
     name: 'inner-bip39',
-    user: 'u/',
+    user: 'u/eywede',
     path: './objects/innerbip.js',
     desc: '',
     btcAddr: ''
+
    },
    { 
     name: '108 Words',
