@@ -12,6 +12,7 @@ import innerBip from './objects/innerbip'; // u/eywede
 import puzzleWords from './objects/all-words'; // CLEAN LIST
 
 import btcLogoSVG from './img/Bitcoin.svg';
+import fibSVG from './img/fib.svg';
 
 // 3rd party
 import Dropdown from 'react-dropdown'
@@ -35,11 +36,12 @@ class App extends Component {
       },
       rotation: 0,
       showX: true,
-      fibb: false,
+      crossHair: false,
+      fib: false,
+      logo: true,
       btcRotation: 0,
       bRotation: 0,
       centerPoint: 'true-center',
-      crossHair: true,
       underlay: 'underlay1',
       overlay: 'no-overlay'
     }
@@ -51,6 +53,12 @@ class App extends Component {
     this.crossHairSwitch = this.crossHairSwitch.bind(this);
     this.onBackdropChange = this.onBackdropChange.bind(this);
     this.onOverlayChange = this.onOverlayChange.bind(this);
+    this.fibSwitch = this.fibSwitch.bind(this);
+    this.logoSwitch = this.logoSwitch.bind(this);
+  }
+
+  reset() {
+    console.log("reset requested")
   }
 
   // Rotates the entire canvas
@@ -87,9 +95,11 @@ class App extends Component {
     this.setState({ overlay: e.value })
   }
 
-  crossHairSwitch(e) {
-    this.setState({ crossHair: this.state.crossHair ? false : true });
-  }
+  crossHairSwitch() { this.setState({ crossHair: this.state.crossHair ? false : true }) }
+
+  fibSwitch() { this.setState({ fib: this.state.fib ? false : true }) }
+
+  logoSwitch() { this.setState({ logo: this.state.logo ? false : true })  }
 
   render() {
     // console.log("State: ", this.state);
@@ -99,6 +109,11 @@ class App extends Component {
     // console.log("Clean Words: ", puzzleWords);
     let centerPoints = [ 'true-center', 'X', 'B dot'],
         underlays = [ 
+          { 
+            value: 'no-underlay', 
+            label: 'no-underlay',
+            class: 'no-underlay'
+          },
           { 
             value: 'underlay1', 
             label: 'u/casey_works',
@@ -163,6 +178,14 @@ class App extends Component {
           {
             value: 'overlay1-all',
             label: 'u/anon all'
+          },
+          {
+            value: 'overlay2',
+            label: 'u/casey_works'
+          },
+          {
+            value: 'overlay3',
+            label: 'u/casey_works'
           }
          ]
     return (
@@ -173,6 +196,10 @@ class App extends Component {
       <Foot layout={this.state.layout} layoutChange={this.onLayoutChange}/>
 
         <div id="settings">
+
+          <div className="setting" onClick={this.reset} style={{ width: '45px', height: '40px' }}>
+          <div id="reset">RESET</div>
+          </div>
 
           <div className="setting" style={{ width: '150px' }}>
             <h6>Puzzle 	&#8736; : {this.state.rotation}&#176;</h6>
@@ -200,6 +227,14 @@ class App extends Component {
               </label>
           </div>
 
+          <div className="setting" style={{ width: '65px' }}>
+            <h6>Logo</h6>
+            <label className="switch">
+                <input type="checkbox" onChange={this.logoSwitch} />
+                <span className="slider round"></span>
+              </label>
+          </div>
+
          <div className="setting" style={{ width: '85px' }}>
             <h6>Gridlines</h6> 
             <label className="switch">
@@ -209,10 +244,19 @@ class App extends Component {
           </div>
 
          <div className="setting" style={{ width: '85px' }}>
+            <h6>Crosshairs</h6> 
+            <label className="switch">
+                <input type="checkbox" onChange={this.crossHairSwitch} checked={this.state.crossHair} />
+                <span className="slider round" onChange={this.crosshHairSwitch}></span>
+            </label> 
+          </div>
+
+
+         <div className="setting" style={{ width: '85px' }}>
             <h6>Fibbonacci</h6> 
             <label className="switch">
-                <input type="checkbox" onChange={this.borderSwitch} />
-                <span className="slider round"></span>
+                <input type="checkbox" onChange={this.fibSwitch} checked={this.state.fib} />
+                <span className="slider round" onChange={this.fibSwitch}></span>
               </label> 
           </div>
 
@@ -226,7 +270,7 @@ class App extends Component {
             <Dropdown options={overlays} onChange={this.onOverlayChange} value={this.state.overlay} placeholder="Select an Overlay" />
           </div>
 
-          <div className="setting" style={{ width: '100px' }}>
+          <div className="setting" style={{ width: '150px' }}>
             <h6>Center Point</h6> 
             <Dropdown options={centerPoints} onChange={this.onCenterChange} value={this.state.centerPoint} placeholder="Select a header option" /> 
           </div>
@@ -254,17 +298,23 @@ class App extends Component {
 
       <div id="x">&#x2612;</div>
 
-      <div id="btc" style={{ transform: `rotate(${this.state.btcRotation}deg)` }}>
+      <div id="btc" style={{ 
+                      transform: `rotate(${this.state.btcRotation}deg)`,
+                      opacity: this.state.logo ? 1 : 0 }}>
           <img src="https://i.imgur.com/XklTJEN.png" alt="blah" />
       </div>
 
-      <div id="crossHair">
+      <div id="crossHair" style={{ opacity: this.state.crossHair ? 1 : 0 }}>
         <div id="up"></div>
         <div id="ac"></div>
       </div>
 
       <div id="btcOrange" style={{ transform: `rotate(${this.state.bRotation}deg)` }}>
         <img src={btcLogoSVG} alt="blah" />
+      </div>
+
+      <div id="fib" style={{ opacity: this.state.fib ? 1 : 0 }}>
+        <img src={fibSVG} alt="fib" />
       </div>
 
       <div id="overlay" className={this.state.overlay}></div>

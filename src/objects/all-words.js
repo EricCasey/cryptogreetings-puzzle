@@ -1,7 +1,42 @@
 const puzzleWords = {
     objs: [
         {
-        word: 'frequent',
+        word: 'almost',
+        x: 600,
+        y: 36,
+        deg: -30,
+        size: 14
+        },
+        {
+        word: 'open',
+        x: 600,
+        y: 36,
+        deg: -30,
+        size: 14
+        },
+        {
+        word: 'code',
+        x: 600,
+        y: 36,
+        deg: -30,
+        size: 14
+        },
+        {
+        word: 'easily',
+        x: 600,
+        y: 36,
+        deg: -30,
+        size: 14
+        },
+        {
+        word: 'attack',
+        x: 600,
+        y: 36,
+        deg: -30,
+        size: 14
+        },
+        {
+        word: 'early',
         x: 600,
         y: 36,
         deg: -30,
@@ -59,6 +94,7 @@ const puzzleWords = {
         "credit",
         "current",
         "drop",
+        "easily",
         "early",
         "effort",
         "either",
@@ -97,6 +133,7 @@ const puzzleWords = {
         "p > q",
         "p >= q",
         "pair",
+        "almost",
         "paper",
         "party",
         "person",
@@ -132,6 +169,7 @@ const puzzleWords = {
         "try",
         "two",
         "use",
+        "users",
         "valid",
         "verify",
         "wait",

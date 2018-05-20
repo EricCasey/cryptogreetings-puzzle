@@ -91,7 +91,7 @@ class Left extends Component {
       style={{ 
         width: this.props.layout.left ? '400px' : '30px' 
         }}>
-        <h3 style={{ opacity: this.props.layout.left ? 0.2 : 1 }}>DATASETS & FILTERS</h3>
+        <h3 style={{ opacity: this.props.layout.left ? 0.2 : 1 }}>DATASETS & <del>FILTERS</del></h3>
         <div className="dataCont" style={{ opacity: this.props.layout.left ? 1 : 0 }}>
         <h2>DataSets</h2>
         <div className="DatasetList" style={{ display: this.props.layout.left ? 'block' : 'none' }}>

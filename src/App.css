@@ -51,7 +51,8 @@ html, body {
         margin: 2px auto;
         width: 100%;
         text-align: right;
-        pointer-events: none; }
+        pointer-events: none;
+        height: 18px; }
       .App .Left .dataCont .DatasetList .dataset h5 {
         border-bottom: 1px solid white;
         pointer-events: none; }
@@ -64,7 +65,8 @@ html, body {
         border-radius: 4px;
         position: absolute;
         display: flex;
-        pointer-events: all; }
+        pointer-events: all;
+        background: black; }
         .App .Left .dataCont .DatasetList .dataset .dlBtn i, .App .Left .dataCont .DatasetList .dataset .dlBtn .fas, .App .Left .dataCont .DatasetList .dataset .dlBtn .fa-download {
           pointer-events: none;
           margin: auto; }
@@ -81,14 +83,21 @@ html, body {
         border-radius: 4px;
         position: absolute;
         display: flex;
-        pointer-events: all; }
-        .App .Left .dataCont .DatasetList .dataset .rBtn i, .App .Left .dataCont .DatasetList .dataset .rBtn .fab, .App .Left .dataCont .DatasetList .dataset .rBtn .fa-reddit-alien {
-          pointer-events: none;
+        pointer-events: all;
+        background: black; }
+        .App .Left .dataCont .DatasetList .dataset .rBtn a {
           margin: auto; }
+          .App .Left .dataCont .DatasetList .dataset .rBtn a i, .App .Left .dataCont .DatasetList .dataset .rBtn a .fab, .App .Left .dataCont .DatasetList .dataset .rBtn a .fa-reddit-alien {
+            pointer-events: none;
+            margin: auto;
+            color: orange; }
       .App .Left .dataCont .DatasetList .dataset .rBtn:hover {
-        background: black;
-        color: orange;
-        transition: 0.3s all; }
+        transition: 0.3s all;
+        background: orange; }
+        .App .Left .dataCont .DatasetList .dataset .rBtn:hover a i, .App .Left .dataCont .DatasetList .dataset .rBtn:hover a .fab, .App .Left .dataCont .DatasetList .dataset .rBtn:hover a .fa-reddit-alien {
+          pointer-events: none;
+          margin: auto;
+          color: white; }
     .App .Left .dataCont .DatasetList .dataset:hover {
       box-shadow: 0 0 5px 2px white;
       transition: 0.3s all; }
@@ -99,7 +108,8 @@ html, body {
     text-align: left; }
     .App .Right h2, .App .Right ol, .App .Right li, .App .Right .hintBox {
       pointer-events: none;
-      transition: 0.5s all; }
+      transition: 0.5s all;
+      min-width: 350px; }
     .App .Right h2 {
       border-bottom: 1px solid #212121;
       padding-left: 15px; }
@@ -112,13 +122,28 @@ html, body {
     height: 35px;
     display: flex; }
     .App .Foot p {
-      width: 80%;
+      width: 60%;
       margin: auto;
       padding-left: 15px;
       text-align: left; }
     .App .Foot #donate {
-      width: 20%;
-      margin: auto; }
+      width: 40%;
+      margin: auto;
+      display: flex; }
+      .App .Foot #donate .hoverDiv {
+        width: 30%;
+        height: 25px;
+        border: 1px solid #212121;
+        border-radius: 4px;
+        transition: 0.3s all;
+        display: flex;
+        margin: auto; }
+        .App .Foot #donate .hoverDiv a, .App .Foot #donate .hoverDiv p {
+          color: white;
+          margin: auto; }
+      .App .Foot #donate .hoverDiv:hover {
+        box-shadow: 0 0 5px 3px white;
+        transition: 0.3s all; }
   .App #settings {
     border: 2px solid lightgreen;
     width: calc(100% - 41px);
@@ -145,6 +170,17 @@ html, body {
         margin: 3px auto;
         height: 15px;
         width: 70%; }
+      .App #settings .setting #reset {
+        border: 2px solid red;
+        margin: auto;
+        height: 10px;
+        width: 30px;
+        font-size: 9px;
+        color: red;
+        transition: 0.3s all; }
+      .App #settings .setting #reset:hover {
+        border-color: white;
+        transition: 0.3s all; }
       .App #settings .setting input {
         width: 99%;
         height: 20px;
@@ -161,10 +197,19 @@ html, body {
         background: black;
         border: 1px solid white;
         height: 20px;
-        margin: 0 auto; }
+        margin: 0 auto;
+        border-radius: 4px; }
         .App #settings .setting .Dropdown-root .Dropdown-control {
           height: 20px;
-          font-size: 16px; }
+          font-size: 16px;
+          background: black;
+          color: white;
+          border-radius: 4px;
+          padding: 2px;
+          width: 140px; }
+          .App #settings .setting .Dropdown-root .Dropdown-control .Dropdown-placeholder {
+            height: 20px;
+            margin: 0; }
       .App #settings .setting .switch {
         position: relative;
         display: inline-block;
@@ -227,57 +272,76 @@ html, body {
       left: 100px;
       bottom: 100px; }
     .App #puzzleCont #btc {
-      width: 665px;
-      height: 665px;
-      opacity: 0.9;
+      width: 660px;
+      height: 660px;
+      opacity: 0.8;
       position: absolute;
       top: 92px;
       border-radius: 50%;
       z-index: 2;
       overflow: hidden;
-      margin-left: 208px;
+      margin-left: 212px;
       background: white; }
+      .App #puzzleCont #btc img {
+        padding-top: 1px; }
     .App #puzzleCont #crossHair {
       height: 5px;
       width: 5px;
-      border: 1px solid red;
       border-radius: 50%;
       margin: auto;
       z-index: 11;
       position: absolute;
       top: 418px;
-      left: calc(50% - 2.5px); }
+      left: calc(50% - 2.5px);
+      transition: 0.3s all; }
     .App #puzzleCont #crossHair #up {
       height: 720px;
       margin-top: -360px;
       width: 0px;
-      border: 1px solid red; }
+      border-left: 1px solid red;
+      transition: 0.3s all; }
     .App #puzzleCont #crossHair #ac {
       height: 0px;
       width: 1080px;
-      border: 1px solid red;
+      border-bottom: 1px solid red;
       margin-top: -360px;
-      margin-left: -540px; }
+      margin-left: -540px;
+      transition: 0.3s all; }
     .App #puzzleCont #btcOrange {
       width: 660px;
       height: 660px;
       opacity: 0.5;
       position: absolute;
-      top: 92px;
+      top: 93px;
       border-radius: 50%;
       z-index: 3;
       overflow: hidden;
-      margin-left: 208px; }
+      margin-left: 212px; }
     .App #puzzleCont #btcOrange img {
       width: 100%;
       height: 100%; }
+    .App #puzzleCont #fib {
+      width: 1080px;
+      height: 720px;
+      border: 3px dashed red;
+      position: absolute;
+      top: 60px;
+      z-index: 12;
+      transition: 0.3s all; }
+      .App #puzzleCont #fib img {
+        width: 100%;
+        height: 100%; }
+      .App #puzzleCont #fib svg {
+        width: 100%;
+        height: 100%; }
     .App #puzzleCont #overlay {
       height: 720px;
       width: 1080px;
       border-radius: 4px;
       margin: 0 auto;
       position: absolute;
-      top: 60px;
+      left: 2px;
+      top: 61px;
       z-index: 1000000; }
     .App #puzzleCont #puzzle {
       height: 720px;
@@ -316,6 +380,12 @@ html, body {
       background: url("https://i.imgur.com/yAFhETF.png"); }
     .App #puzzleCont .overlay1-all {
       background: url("https://i.imgur.com/yAFhETF.png"), url("https://i.imgur.com/bhWzQkD.png"), url("https://i.imgur.com/KAZF8qH.png"), url("https://i.imgur.com/Vb2KfFU.png"), url("https://i.imgur.com/OX8AshY.png"); }
+    .App #puzzleCont .overlay2 {
+      background: url("https://i.imgur.com/x7awlTU.png");
+      background-size: contain; }
+    .App #puzzleCont .overlay3 {
+      background: url("https://i.imgur.com/beTNDc4.png");
+      background-size: contain; }
 
 /* @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
