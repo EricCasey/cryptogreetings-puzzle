@@ -174,49 +174,61 @@ class App extends Component {
 
         <div id="settings">
 
-          <div className="setting">
-            <h6>Puzzle Rotation = {this.state.rotation}deg</h6>
+          <div className="setting" style={{ width: '150px' }}>
+            <h6>Puzzle 	&#8736; : {this.state.rotation}&#176;</h6>
             <input type="number" className="degInput" min="0" max="360" value={this.state.rotation} onChange={this.rotateChange}/>
             <input type="range" id="rotation" min="0" max="360" value={this.state.rotation} onChange={this.rotateChange}/>
           </div>
 
-          <div className="setting">
-            <h6>Circle Rotation = {this.state.btcRotation}deg</h6>
+          <div className="setting" style={{ width: '100px' }}>
+            <h6>Circle 	&#8736; : {this.state.btcRotation}&#176;</h6>
             <input type="number" className="degInput" min="0" max="360" value={this.state.btcRotation} onChange={this.btcRotateChange}/>
             <input type="range" id="rotation" min="0" max="360" value={this.state.btcRotation} onChange={this.btcRotateChange}/>
           </div>
 
-        <div className="setting">
-            <h6>'B' Rotation</h6>
+        <div className="setting" style={{ width: '100px' }}>
+            <h6>'B'	&#8736; : {this.state.bRotation}&#176;</h6>
             <input type="number" className="degInput" min="0" max="360" value={this.state.bRotation} onChange={this.bRotateChange}/>
             <input type="range" id="rotation" min="0" max="360" value={this.state.bRotation} onChange={this.bRotateChange}/>
           </div>
 
-          <div className="setting">
-            <h6>Center Point</h6> 
-            <Dropdown options={centerPoints} onChange={this.onCenterChange} value={this.state.centerPoint} placeholder="Select a header option" /> 
-          </div>
-
-          <div className="setting">
+          <div className="setting" style={{ width: '85px' }}>
             <h6>Circles</h6>
+            <label className="switch">
+                <input type="checkbox" onChange={this.borderSwitch} />
+                <span className="slider round"></span>
+              </label>
           </div>
 
-         <div className="setting">
-            <h6>Gridlines</h6>  
+         <div className="setting" style={{ width: '85px' }}>
+            <h6>Gridlines</h6> 
+            <label className="switch">
+                <input type="checkbox" onChange={this.borderSwitch} />
+                <span className="slider round"></span>
+              </label> 
           </div>
 
-         <div className="setting">
-            <h6>Fibbonacci</h6>  
+         <div className="setting" style={{ width: '85px' }}>
+            <h6>Fibbonacci</h6> 
+            <label className="switch">
+                <input type="checkbox" onChange={this.borderSwitch} />
+                <span className="slider round"></span>
+              </label> 
           </div>
 
-          <div className="setting">
+          <div className="setting" style={{ width: '150px' }}>
             <h6>Underlay</h6>
             <Dropdown options={underlays} onChange={this.onBackdropChange} value={this.state.underlay} placeholder="Select an Underlay" />
           </div>
 
-         <div className="setting">
+         <div className="setting" style={{ width: '150px' }}>
             <h6>Overlay</h6>
             <Dropdown options={overlays} onChange={this.onOverlayChange} value={this.state.overlay} placeholder="Select an Overlay" />
+          </div>
+
+          <div className="setting" style={{ width: '100px' }}>
+            <h6>Center Point</h6> 
+            <Dropdown options={centerPoints} onChange={this.onCenterChange} value={this.state.centerPoint} placeholder="Select a header option" /> 
           </div>
           
       </div>

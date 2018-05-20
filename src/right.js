@@ -15,11 +15,11 @@ class Right extends Component {
       id="right" 
       onClick={this.props.layoutChange} 
       style={{ 
-        width: this.props.layout.right ? '200px' : '30px' 
+        width: this.props.layout.right ? '350px' : '30px' 
         }}>
         <h5>HINTS</h5>
         <div className="hintBox" style={{ opacity: this.props.layout.right ? 1 : 0 }}>
-        <h2>OP Says The Darndest Things</h2>
+        <h2>Shit OP Says:</h2>
         <ol>
           <li>"There's also some consolation prizes scattered in there, but let's not even talk about those for now ;)" - OP</li>
           <li>"You can throw at least half of those out. This is clue #1."</li>

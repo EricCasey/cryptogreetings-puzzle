@@ -91,13 +91,13 @@ class Left extends Component {
       style={{ 
         width: this.props.layout.left ? '400px' : '30px' 
         }}>
-        <h3>DATASETS & FILTERS</h3>
+        <h3 style={{ opacity: this.props.layout.left ? 0.2 : 1 }}>DATASETS & FILTERS</h3>
         <div className="dataCont" style={{ opacity: this.props.layout.left ? 1 : 0 }}>
         <h2>DataSets</h2>
-        <div className="DatasetList">
+        <div className="DatasetList" style={{ display: this.props.layout.left ? 'block' : 'none' }}>
           {dataSets.map((set, i) => {
             return (
-            <div className="dataset" key={i}>
+            <div className="dataset" key={i} id="left">
               <div className="dlBtn" id={i} onClick={this.downloadData}>
                 <i className="fas fa-download" aria-hidden="false"></i>
               </div>
@@ -106,9 +106,9 @@ class Left extends Component {
                   <i className="fab fa-reddit-alien" aria-hidden="false"></i>
                 </a>
               </div>
-              <h5>{set.name}</h5>
-              <p>{set.user}</p>
-              <p>{set.desc}</p>
+              <h5 id="left">{set.name}</h5>
+              <p id="left">{set.user}</p>
+              <p id="left">{set.desc}</p>
             </div>
           )
           })}

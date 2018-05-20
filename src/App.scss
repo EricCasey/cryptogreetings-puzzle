@@ -26,70 +26,87 @@ html, body {
     height: calc(100% - 60px);
     width: 180px;
     top: 56px;
-    h2 {
-      width: 300px;
-      margin: 0;
-      height: 20px;
-      pointer-events: none;
-    }
     h3 {
       transform: rotate(270deg);
+      position: absolute;
+      left: -135px;
+      top: 80px;
+      pointer-events:none;
+      width: 300px;
+      transition: 0.3s all;
     }
-    .DatasetList {
-      .dataset {
-        width: 95%;
-        height: 100px;
-        font-size: 16px;
-        margin: 3px auto;
-        border: 1px solid #212121;
-        border-radius: 4px;
-        display: flex;
-        flex-wrap: wrap;
-        padding: 4px;
-        h5, p {
-          margin: 2px auto;
-          width: 100%;
-          text-align: right;
-        }
-        h5 {
-          border-bottom: 1px solid white;
-        }
-        .dlBtn {
-          border: 1px solid white;
-          height: 25px;
-          width: 25px;
-          transition: 0.3s all;
-          margin: 5px;
+    .dataCont {
+      h2 {
+        width: 300px;
+        margin: 10px auto;
+        height: 20px;
+        pointer-events: none;
+      }
+      .DatasetList {
+        .dataset {
+          width: 95%;
+          height: 100px;
+          font-size: 16px;
+          margin: 3px auto;
+          border: 1px solid #212121;
           border-radius: 4px;
-          position: absolute;
           display: flex;
-          i, .fas, .fa-download {
-            pointer-events: none;
-            margin: auto;
+          flex-wrap: wrap;
+          padding: 4px;
+          transition: 0.3s all;
+          h5, p {
+            margin: 2px auto;
+            width: 100%;
+            text-align: right;
+            pointer-events:none;
+          }
+          h5 {
+            border-bottom: 1px solid white;
+            pointer-events:none;
+          }
+          .dlBtn {
+            border: 1px solid white;
+            height: 25px;
+            width: 25px;
+            transition: 0.3s all;
+            margin: 5px;
+            border-radius: 4px;
+            position: absolute;
+            display: flex;
+            pointer-events: all;
+            i, .fas, .fa-download {
+              pointer-events: none;
+              margin: auto;
+            }
+          }
+          .dlBtn:hover {
+            background: white;
+            color: green;
+            transition: 0.3s all;
+          }
+          .rBtn {
+            border: 1px solid white;
+            height: 25px;
+            width: 25px;
+            transition: 0.3s all;
+            margin: 5px 5px 5px 35px;
+            border-radius: 4px;
+            position: absolute;
+            display: flex;
+            pointer-events: all;
+            i, .fab, .fa-reddit-alien {
+              pointer-events: none;
+              margin: auto;
+            }
+          }
+          .rBtn:hover {
+            background: black;
+            color: orange;
+            transition: 0.3s all;
           }
         }
-        .dlBtn:hover {
-          background: white;
-          color: green;
-          transition: 0.3s all;
-        }
-        .rBtn {
-          border: 1px solid white;
-          height: 25px;
-          width: 25px;
-          transition: 0.3s all;
-          margin: 5px 5px 5px 35px;
-          border-radius: 4px;
-          position: absolute;
-          display: flex;
-          i, .fab, .fa-reddit-alien {
-            pointer-events: none;
-            margin: auto;
-          }
-        }
-        .rBtn:hover {
-          background: black;
-          color: orange;
+        .dataset:hover {
+          box-shadow: 0 0 5px 2px white;
           transition: 0.3s all;
         }
       }
@@ -97,11 +114,16 @@ html, body {
   }
   .Right {
     width: 30px;
-    height: 100%;
+    height: calc(100% - 45px);
     right: 0px;
+    text-align: left;
     h2, ol, li, .hintBox {
-      pointer-events:none;
+      pointer-events: none;
       transition: 0.5s all;
+    }
+    h2 {
+      border-bottom: 1px solid #212121;
+      padding-left: 15px;
     }
 h5 {
   transform: rotate(90deg);
@@ -109,12 +131,25 @@ h5 {
   }
   .Foot {
     bottom: 0px;
-    width: 100%;
+    left: 37px;
+    width: calc(100% - 42px);
     height: 35px;
+    display: flex;
+    p {
+      width: 80%;
+      margin: auto;
+      padding-left: 15px;
+      text-align: left;
+    }
+    #donate {
+      width: 20%;
+      margin: auto;
+
+    }
   }
   #settings {
     border: 2px solid lightgreen;
-    width: 100%;
+    width: calc(100% - 41px);
     height: 50px;
     display: flex;
     position: fixed;
@@ -122,8 +157,9 @@ h5 {
     left: 0px;
     background: black;
     z-index: 10000000;
+    border-radius: 4px;
     .setting {
-      border: 1px solid white;
+      border: 1px solid #212121;
       height: 45px;
       width: 300px;
       margin: auto;
@@ -131,6 +167,7 @@ h5 {
       flex-wrap: wrap;
       color: white;
       background: black;
+      border-radius: 4px;
       h6 {
         margin: 3px auto;
         height: 15px;
@@ -159,6 +196,54 @@ h5 {
           height: 20px;
           font-size: 16px;
         }
+      }
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+        margin: auto auto 3px auto;
+      }
+      .switch input {display:none;}
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+      input:checked + .slider {
+        background-color: #2196F3;
+      }
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+      input:checked + .slider:before {
+        -webkit-transform: translateX(19px);
+        -ms-transform: translateX(19px);
+        transform: translateX(19px);
+      }             
+      /* Rounded sliders */
+      .slider.round {
+        border-radius: 20px;
+      }
+      .slider.round:before {
+        border-radius: 50%;
       }
     }
   }

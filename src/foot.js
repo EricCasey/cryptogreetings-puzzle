@@ -11,7 +11,8 @@ class Foot extends Component {
 
     return (
       <div className="Foot">
-        Info & Help here
+        <p>FEEL FREE TO SEND YOUR DATA TO ME --> u/Casey_Works -or- Eric@Casey.Works</p>
+        <div id="donate">DONATE?</div>
       </div>
     );
   }
