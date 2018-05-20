@@ -40,7 +40,8 @@ class App extends Component {
       bRotation: 0,
       centerPoint: 'true-center',
       crossHair: true,
-      underlay: 'underlay1'
+      underlay: 'underlay1',
+      overlay: 'no-overlay'
     }
     this.rotateChange = this.rotateChange.bind(this);
     this.btcRotateChange = this.btcRotateChange.bind(this);
@@ -49,6 +50,7 @@ class App extends Component {
     this.onLayoutChange = this.onLayoutChange.bind(this);
     this.crossHairSwitch = this.crossHairSwitch.bind(this);
     this.onBackdropChange = this.onBackdropChange.bind(this);
+    this.onOverlayChange = this.onOverlayChange.bind(this);
   }
 
   // Rotates the entire canvas
@@ -79,6 +81,10 @@ class App extends Component {
   onBackdropChange(e) {
     console.log(e);
     this.setState({ underlay: e.value })
+  }
+  onOverlayChange(e) {
+    console.log(e);
+    this.setState({ overlay: e.value })
   }
 
   crossHairSwitch(e) {
@@ -130,10 +136,34 @@ class App extends Component {
           }
          ],
          overlays = [ 
+          {
+            value: 'no-overlay',
+            label: 'no-overlay'
+          },
            {
-            value: '',
-            label: ''
-            }
+            value: 'overlay1-0deg',
+            label: 'u/anon 0deg'
+          },
+          {
+            value: 'overlay1-30deg',
+            label: 'u/anon 30deg'
+          },
+          {
+            value: 'overlay1-60deg',
+            label: 'u/anon 60deg'
+          },
+          {
+            value: 'overlay1-n30deg',
+            label: 'u/anon -30deg'
+          },
+          {
+            value: 'overlay1-n60deg',
+            label: 'u/anon -60deg'
+          },
+          {
+            value: 'overlay1-all',
+            label: 'u/anon all'
+          }
          ]
     return (
       <div className="App">
@@ -225,7 +255,7 @@ class App extends Component {
         <img src={btcLogoSVG} alt="blah" />
       </div>
 
-      <div id="overlay"></div>
+      <div id="overlay" className={this.state.overlay}></div>
 
       <div id="puzzle" className={this.state.underlay} style={{ transform: `rotate(${this.state.rotation}deg)` }}></div>
 

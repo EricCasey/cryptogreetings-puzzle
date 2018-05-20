@@ -203,12 +203,11 @@ html, body {
     .App #puzzleCont #overlay {
       height: 720px;
       width: 1080px;
-      border: 10px solid white;
       border-radius: 4px;
       margin: 0 auto;
       position: absolute;
       top: 60px;
-      z-index: 1; }
+      z-index: 1000000; }
     .App #puzzleCont #puzzle {
       height: 720px;
       width: 1080px;
@@ -234,6 +233,18 @@ html, body {
       background: url("https://image.ibb.co/b8wS6T/highlighted.png"); }
     .App #puzzleCont .underlay7 {
       background: url("https://i.imgur.com/QnxYVHy.png"); }
+    .App #puzzleCont .overlay1-0deg {
+      background: url("https://i.imgur.com/OX8AshY.png"); }
+    .App #puzzleCont .overlay1-30deg {
+      background: url("https://i.imgur.com/Vb2KfFU.png"); }
+    .App #puzzleCont .overlay1-60deg {
+      background: url("https://i.imgur.com/KAZF8qH.png"); }
+    .App #puzzleCont .overlay1-n30deg {
+      background: url("https://i.imgur.com/bhWzQkD.png"); }
+    .App #puzzleCont .overlay1-n60deg {
+      background: url("https://i.imgur.com/yAFhETF.png"); }
+    .App #puzzleCont .overlay1-all {
+      background: url("https://i.imgur.com/yAFhETF.png"), url("https://i.imgur.com/bhWzQkD.png"), url("https://i.imgur.com/KAZF8qH.png"), url("https://i.imgur.com/Vb2KfFU.png"), url("https://i.imgur.com/OX8AshY.png"); }
 
 /* @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
