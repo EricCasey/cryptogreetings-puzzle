@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Left from './left.js';
+import Right from './right.js';
+import Foot from './foot.js';
+
 import bip from './objects/bip39.js'; // 
 import eightyFive from './objects/85-words'; // u/toshiromiballza
 import innerBip from './objects/inner-bip39'; // u/eywede
@@ -10,43 +14,63 @@ import puzzleWords from './objects/all-words'; // CLEAN LIST
 
 import btcLogoSVG from './img/Bitcoin.svg';
 
+// 3rd party
+import Dropdown from 'react-dropdown'
+import 'react-dropdown/style.css'
+
 // notes
 // > Little dot could be center
 // > X could be center
 // > center could be center
-
+// > 
 
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      layout: {
+        right: false,
+        left: false,
+        foot: false
+      },
       rotation: 0,
       showX: true,
+      fibb: false,
       btcRotation: 0,
-      bRotation: 0
+      bRotation: 0,
+      centerPoint: 'true-center'
     }
     this.rotateChange = this.rotateChange.bind(this);
     this.btcRotateChange = this.btcRotateChange.bind(this);
-    this.showX = this.showX.bind(this);
     this.bRotateChange = this.bRotateChange.bind(this);
+    this.onCenterChange = this.onCenterChange.bind(this);
+    this.onLayoutChange = this.onLayoutChange.bind(this);
   }
 
-  rotateChange(e) {
-    this.setState({ rotation: e.target.value });
-  }
-  btcRotateChange(e) {
-    console.log("BTC Rotation, ", e.target.value)
-    this.setState({ btcRotation: e.target.value });
-  }
+  // Rotates the entire canvas
+  rotateChange(e) { this.setState({ rotation: e.target.value }) }
 
-  showX() {
-    console.log("showX: ", this.state.showX ? false : true);
-    this.setState({ showX: this.state.showX ? false : true });
-  }
+  // Rotates the Circle
+  btcRotateChange(e) { this.setState({ btcRotation: e.target.value }) }
 
-  bRotateChange(e) {
-    this.setState({ bRotation: e.target.value });
+  // Rotates the Bitcoin B
+  bRotateChange(e) { this.setState({ bRotation: e.target.value }) }
+
+  // Changes the Center Point
+  onCenterChange(point) { this.setState({ centerPoint: point }) }
+
+  onLayoutChange(e) {
+    console.log(e.target.id);
+    let layout = this.state.layout
+    if(e.target.id === 'right') {
+      layout.right = this.state.layout.right ? false : true
+    } else if(e.target.id === 'left') {
+      layout.left = this.state.layout.left ? false : true
+    } if(e.target.id === 'foot') {
+      layout.foot = this.state.layout.foot ? false : true
+    }
+    this.setState({ layout })
   }
 
   render() {
@@ -55,34 +79,45 @@ class App extends Component {
     console.log("85 Words: ", eightyFive.words);
     console.log("innerBip: ", innerBip.words);
     console.log("Clean Words: ", puzzleWords);
-
+    let centerPoints = [ 'true-center', 'X', 'B dot'];
     return (
       <div className="App">
+
+      <Left layout={this.state.layout} layoutChange={this.onLayoutChange}/>
+      <Right layout={this.state.layout} layoutChange={this.onLayoutChange}/>
+      <Foot layout={this.state.layout} layoutChange={this.onLayoutChange}/>
 
         <div id="settings">
 
           <div className="setting">
             <h6>Puzzle Rotation = {this.state.rotation}deg</h6>
+            <input type="number" className="degInput" min="0" max="360" value={this.state.rotation} onChange={this.rotateChange}/>
             <input type="range" id="rotation" min="0" max="360" value={this.state.rotation} onChange={this.rotateChange}/>
           </div>
 
           <div className="setting">
             <h6>Circle Rotation = {this.state.btcRotation}deg</h6>
+            <input type="number" className="degInput" min="0" max="360" value={this.state.btcRotation} onChange={this.btcRotateChange}/>
             <input type="range" id="rotation" min="0" max="360" value={this.state.btcRotation} onChange={this.btcRotateChange}/>
           </div>
 
         <div className="setting">
             <h6>'B' Rotation</h6>
+            <input type="number" className="degInput" min="0" max="360" value={this.state.bRotation} onChange={this.bRotateChange}/>
             <input type="range" id="rotation" min="0" max="360" value={this.state.bRotation} onChange={this.bRotateChange}/>
           </div>
 
           <div className="setting">
-            <h6>Show X Thingy</h6>
-            <input type="radio" onChange={this.showX} value={this.state.showX} />
+            <h6>Center Point</h6> 
+            <Dropdown options={centerPoints} onChange={this.onCenterChange} value={this.state.centerPoint} placeholder="Select a header option" /> 
           </div>
 
           <div className="setting">
-            <h6>Center Point</h6>  
+            <h6>Circles</h6>
+          </div>
+
+         <div className="setting">
+            <h6>Gridlines</h6>  
           </div>
           
       </div>
@@ -98,11 +133,9 @@ class App extends Component {
                         className="word" 
                         key={i}
                         style={{ 
-                          transform: `rotate(${word.deg}deg)`,
+                          transform: `rotate(${word.deg}deg) translate(${word.x},${word.y})`,
                           position: 'absolute',
                           zIndex: 100000000000,
-                          bottom: word.x,
-                          left: `calc(((100% - 1080px)/2) + ${word.y})px`,
                           fontSize: word.size
                         }}>{word.word}</div>
             })}

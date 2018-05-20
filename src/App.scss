@@ -1,90 +1,106 @@
 @import 'https://fonts.googleapis.com/css?family=Work+Sans';
+
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Work Sans', sans-serif; }
+  font-family: 'Work Sans', sans-serif;
+}
 
 .App {
   text-align: center;
   height: 100%;
   width: 100%;
-  background: black; }
-  .App .Left, .App .Right, .App .Foot {
+  background: black;
+  .Left, .Right, .Foot {
     border: 2px solid lightgreen;
     background: black;
     position: fixed;
     color: white;
     transition: 0.5s all;
-    z-index: 10000000000; }
-  .App .Left {
+    z-index: 10000000000;
+  }
+  .Left {
     left: 0px;
     height: calc(100% - 60px);
     width: 180px;
-    top: 56px; }
-  .App .Right {
+    top: 56px;
+  }
+  .Right {
     width: 30px;
     height: 100%;
-    right: 0px; }
-    .App .Right h2, .App .Right ol, .App .Right li, .App .Right .hintBox {
-      pointer-events: none;
-      transition: 0.5s all; }
-  .App .Foot {
+    right: 0px;
+    h2, ol, li, .hintBox {
+      pointer-events:none;
+      transition: 0.5s all;
+    }
+
+  }
+  .Foot {
     bottom: 0px;
     width: 100%;
-    height: 35px; }
-  .App #settings {
+    height: 35px;
+  }
+  #settings {
     border: 2px solid lightgreen;
     width: 100%;
     height: 50px;
     display: flex;
     position: fixed;
     top: 0px;
-    left: 0px; }
-    .App #settings .setting {
+    left: 0px;
+    .setting {
       border: 1px solid white;
       height: 45px;
       width: 300px;
       margin: auto;
       display: flex;
       flex-wrap: wrap;
-      color: white; }
-      .App #settings .setting h6 {
+      color: white;
+      h6 {
         margin: 3px auto;
         height: 15px;
-        width: 70%; }
-      .App #settings .setting input {
+        width: 70%;
+      }
+      input {
         width: 99%;
         height: 20px;
-        margin: 0 auto; }
-      .App #settings .setting .degInput {
+        margin: 0 auto;
+      }
+      .degInput {
         width: 20%;
         margin: auto;
         background: black;
         border: 2px solid #212121;
         color: white;
-        border-radius: 4px; }
-  .App #puzzleCont {
+        border-radius: 4px;
+      }
+    }
+  }
+  #puzzleCont {
     margin: 0 auto;
     top: 0px;
     left: 200px;
     position: fixed;
-    display: flex; }
-    .App #puzzleCont #words {
+    display: flex;
+    #words {
       width: 1080px;
       height: 720px;
       margin: -958px 0 0 0;
       z-index: 10;
       border: 1px solid green;
-      padding: 0; }
-      .App #puzzleCont #words .word {
-        color: red; }
-    .App #puzzleCont #x {
+      padding: 0;
+      .word {
+        color: red;
+      }
+    }
+    #x {
       color: red;
       font-size: 100px;
       position: absolute;
       left: 100px;
-      bottom: 100px; }
-    .App #puzzleCont #btc {
+      bottom: 100px;
+    }
+    #btc {
       width: 665px;
       height: 665px;
       opacity: 0.9;
@@ -94,8 +110,9 @@ html, body {
       z-index: 2;
       overflow: hidden;
       margin-left: 208px;
-      background: white; }
-    .App #puzzleCont #crossHair {
+      background: white;
+    }
+    #crossHair {
       height: 5px;
       width: 5px;
       border: 1px solid red;
@@ -104,32 +121,38 @@ html, body {
       z-index: 11;
       position: absolute;
       top: 418px;
-      left: calc(50% - 2.5px); }
-    .App #puzzleCont #crossHair #up {
+      left: calc(50% - 2.5px);
+    }
+    #crossHair #up {
       height: 720px;
       margin-top: -360px;
       width: 0px;
-      border: 1px solid red; }
-    .App #puzzleCont #crossHair #ac {
+      border: 1px solid red;
+    }
+    #crossHair #ac {
       height: 0px;
       width: 1080px;
       border: 1px solid red;
       margin-top: -360px;
-      margin-left: -540px; }
-    .App #puzzleCont #btcOrange {
+      margin-left: -540px;
+    }
+    #btcOrange {
       width: 660px;
       height: 660px;
       opacity: 0.5;
       position: absolute;
       top: 92px;
       border-radius: 50%;
+      // border: 1px solid red;
       z-index: 3;
       overflow: hidden;
-      margin-left: 208px; }
-    .App #puzzleCont #btcOrange img {
+      margin-left: 208px;
+    }
+    #btcOrange img {
       width: 100%;
-      height: 100%; }
-    .App #puzzleCont #puzzle {
+      height: 100%;
+    }
+    #puzzle {
       height: 720px;
       width: 1080px;
       background: url("https://i.imgur.com/N84KCQg.png");
@@ -140,7 +163,15 @@ html, body {
       /* display: flex; */
       position: absolute;
       top: 60px;
-      z-index: 1; }
+      z-index: 1;
+    }
+  }
+}
+
+
+
+
+
 
 /* @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
