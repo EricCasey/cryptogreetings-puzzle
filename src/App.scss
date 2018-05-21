@@ -232,24 +232,29 @@ h5 {
         color: white;
         border-radius: 4px;
       }
-      .Dropdown-root {
+      .Select {
         background: black;
         border: 1px solid white;
         height: 20px;
         margin: 0 auto;
         border-radius: 4px;
-        .Dropdown-control {
+        line-height: 20px !important;
+        .Select-control {
           height: 20px;
-          font-size: 16px;
+          font-size: 12px;
           background: black;
           color: white;
           border-radius: 4px;
           padding: 2px;
-          width: 140px;
-          .Dropdown-placeholder {
+          line-height: 20px !important;
+          width: 140px !important;
+          .Select-value {
             height: 20px;
-            margin: 0;
+            line-height: 20px !important;
           }
+        }
+        input {
+          width: 140px;
         }
       }
       .switch {
@@ -337,8 +342,10 @@ h5 {
       overflow: hidden;
       margin-left: 212px;
       background: white;
+      transition: 0.3s all;
       img {
         padding-top: 1px;
+        transition: 0.3s all;
       }
     }
     #crossHair {
@@ -371,7 +378,7 @@ h5 {
     #btcOrange {
       width: 660px;
       height: 660px;
-      opacity: 0.5;
+      opacity: 0.2;
       position: absolute;
       top: 93px;
       border-radius: 50%;
@@ -379,6 +386,7 @@ h5 {
       z-index: 3;
       overflow: hidden;
       margin-left: 212px;
+      transition: 0.3s all;
     }
     #btcOrange img {
       width: 100%;
@@ -411,6 +419,17 @@ h5 {
       top: 61px;
       z-index: 1000000;
     }
+    #circleBorder {
+      height: 655px;
+      width: 655px;
+      border: 3px dashed orange;
+      margin: 0 auto;
+      position: absolute;
+      top: 93px;
+      border-radius: 50%; 
+      z-index: 15;
+      margin-left: 212px;
+    }
     #puzzle {
       height: 720px;
       width: 1080px;
@@ -423,6 +442,7 @@ h5 {
       position: absolute;
       top: 60px;
       z-index: 1;
+      transition: 0.3s all;
     }
     .underlay1 {
       background: url('https://i.imgur.com/N84KCQg.png');
@@ -434,7 +454,7 @@ h5 {
       background: url('https://i.imgur.com/7QZDtId.jpg');
     }
     .underlay4 {
-      background: url('https://imgur.com/a/VhVLr1P');
+      background: url('https://i.imgur.com/iYR8hBj.jpg');
     }
     .underlay5 {
       background: url('https://i.imgur.com/U50NzaQ.jpg');
@@ -474,6 +494,14 @@ h5 {
     }
     .overlay3 {
       background: url('https://i.imgur.com/beTNDc4.png');
+      background-size: contain;
+    }
+    .overlay4 {
+      background: url('https://i.imgur.com/oy0JTbo.png');
+      background-size: contain;
+    }
+    .overlay5 {
+      background: url('https://i.imgur.com/PLCKGVH.png');
       background-size: contain;
     }
   }

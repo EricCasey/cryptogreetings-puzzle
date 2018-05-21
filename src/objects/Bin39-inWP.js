@@ -1,7 +1,1 @@
-const BINinWP = {
-    words: [
-
-    ]
-}
-
-export default BINinWP;
+"Sorry, I lost these"

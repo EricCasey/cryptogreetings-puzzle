@@ -51,6 +51,7 @@ class Right extends Component {
           <li>https://docs.google.com/spreadsheets/d/166Ml9zkMxrlhHyLGm49VEWL6zNIPzl8fc6PMPqvBk9A/edit#gid=0</li>
           <li>https://www.jasondavies.com/wordcloud/</li>
           <li>https://dev.w3.org/html5/html-author/charref</li>
+          <li>https://bitcoinsymbol.org/</li>
         </ul>
         </div>
 

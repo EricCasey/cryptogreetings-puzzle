@@ -69,12 +69,8 @@ class Left extends Component {
   }
 
   downloadData(set) {
-    // console.log("dataRequest");
-    // console.log(set.target.id)
-    // console.log(dataSets[set.target.id]);
     let e = document.createElement("a");
     let payload = this.payloadGen(dataSets[set.target.id].path);
-    // console.log(JSON.stringify(payload));
     let file = new Blob([JSON.stringify(payload)], {type: 'text/plain'});
     e.href = URL.createObjectURL(file);
     e.download = `${dataSets[set.target.id].name}.txt`;

@@ -1,4 +1,4 @@
-const innerBip = {
+const innerbip = {
     words: [
         "since",
         "modify",
@@ -45,7 +45,7 @@ const innerBip = {
         "pool",
         "gap",
         "code"
-    ]
-}
+        ]
+    }
 
-module.exports = innerBip;
+export default innerbip;

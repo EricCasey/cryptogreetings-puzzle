@@ -1,29 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 
+// Containers
 import Left from './left.js';
 import Right from './right.js';
 import Foot from './foot.js';
 
-import bip from './objects/bip39.js'; // 
-import eightyFive from './objects/85-words'; // u/toshiromiballza
-import innerBip from './objects/innerbip'; // u/eywede
-
-import puzzleWords from './objects/all-words'; // CLEAN LIST
-
+// Logos
 import btcLogoSVG from './img/Bitcoin.svg';
 import fibSVG from './img/fib.svg';
 
 // 3rd party
-import Dropdown from 'react-dropdown'
-import 'react-dropdown/style.css'
-
-// notes
-// > Little dot could be center
-// > X could be center
-// > center could be center
-// > CSS is in all caps but not inWP
-
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 class App extends Component {
   constructor(props) {
@@ -38,9 +27,12 @@ class App extends Component {
       showX: true,
       crossHair: false,
       fib: false,
+      b: true,
       logo: true,
+      circle: true,
       btcRotation: 0,
       bRotation: 0,
+      overlayRotation: 0,
       centerPoint: 'true-center',
       underlay: 'underlay1',
       overlay: 'no-overlay'
@@ -54,18 +46,44 @@ class App extends Component {
     this.onBackdropChange = this.onBackdropChange.bind(this);
     this.onOverlayChange = this.onOverlayChange.bind(this);
     this.fibSwitch = this.fibSwitch.bind(this);
+    this.bSwitch = this.bSwitch.bind(this);
+    this.circleSwitch = this.circleSwitch.bind(this);
     this.logoSwitch = this.logoSwitch.bind(this);
+    this.reset = this.reset.bind(this);
+    this.overlayRotateChange = this.overlayRotateChange.bind(this);
   }
 
   reset() {
-    console.log("reset requested")
+    this.setState({
+      layout: {
+        right: false,
+        left: false,
+        foot: false
+      },
+      rotation: 0,
+      showX: true,
+      crossHair: false,
+      fib: false,
+      logo: true,
+      b: true,
+      circle: true,
+      btcRotation: 0,
+      bRotation: 0,
+      overlayRotation: 0,
+      centerPoint: 'true-center',
+      underlay: 'underlay1',
+      overlay: 'no-overlay'
+    })
   }
 
-  // Rotates the entire canvas
+  // Rotates the Rectangle
   rotateChange(e) { this.setState({ rotation: e.target.value }) }
 
   // Rotates the Circle
   btcRotateChange(e) { this.setState({ btcRotation: e.target.value }) }
+
+  // Rotates the Overlay
+  overlayRotateChange(e) { this.setState({ overlayRotation: e.target.value }) }
 
   // Rotates the Bitcoin B
   bRotateChange(e) { this.setState({ bRotation: e.target.value }) }
@@ -73,8 +91,29 @@ class App extends Component {
   // Changes the Center Point
   onCenterChange(point) { this.setState({ centerPoint: point }) }
 
+  // Change the Rectangle
+  onBackdropChange(e) { this.setState({ underlay: e.value }) }
+
+  // Change the Overlay
+  onOverlayChange(e) {  this.setState({ overlay: e.value }) }
+
+  // Toggle Crosshairs
+  crossHairSwitch() { this.setState({ crossHair: this.state.crossHair ? false : true }) }
+
+  // Toggle Fib Overlay
+  fibSwitch() { this.setState({ fib: this.state.fib ? false : true }) }
+
+  // Make Center Logo Transparent
+  logoSwitch() { this.setState({ logo: this.state.logo ? false : true })  }
+
+  // Add / Remove the Orange B
+  bSwitch() { this.setState({ b: this.state.b ? false : true }) }
+
+  // Add / Remove the Round Border
+  circleSwitch() { this.setState({ circle: this.state.circle ? false : true }) }
+
+  // Layout Control
   onLayoutChange(e) {
-    console.log(e.target.id);
     let layout = this.state.layout
     if(e.target.id === 'right') {
       layout.right = this.state.layout.right ? false : true
@@ -86,28 +125,19 @@ class App extends Component {
     this.setState({ layout });
   }
 
-  onBackdropChange(e) {
-    console.log(e);
-    this.setState({ underlay: e.value })
-  }
-  onOverlayChange(e) {
-    console.log(e);
-    this.setState({ overlay: e.value })
-  }
-
-  crossHairSwitch() { this.setState({ crossHair: this.state.crossHair ? false : true }) }
-
-  fibSwitch() { this.setState({ fib: this.state.fib ? false : true }) }
-
-  logoSwitch() { this.setState({ logo: this.state.logo ? false : true })  }
-
   render() {
-    // console.log("State: ", this.state);
-    // console.log("BIP-0039 Words: ", bip.words);
-    // console.log("85 Words: ", eightyFive.words);
-    // console.log("innerBip: ", innerBip.words);
-    // console.log("Clean Words: ", puzzleWords);
-    let centerPoints = [ 'true-center', 'X', 'B dot'],
+
+    let centerPoints = [ 
+        { value: 'True-Center',
+          label: 'True-Center'
+        },
+        { value: 'X',
+          label: 'X'
+        },
+        { value: 'Ƀ Dot',
+          label: 'Ƀ Dot'
+        }
+      ],
         underlays = [ 
           { 
             value: 'no-underlay', 
@@ -186,8 +216,18 @@ class App extends Component {
           {
             value: 'overlay3',
             label: 'u/casey_works'
+          },
+          {
+            value: 'overlay4',
+            label: 'u/casey_works'
+          },
+          {
+            value: 'overlay5',
+            label: 'u/casey_works'
           }
          ]
+
+
     return (
       <div className="App">
 
@@ -208,42 +248,58 @@ class App extends Component {
           </div>
 
           <div className="setting" style={{ width: '100px' }}>
-            <h6>Circle 	&#8736; : {this.state.btcRotation}&#176;</h6>
+            <h6>Coin 	&#8736; : {this.state.btcRotation}&#176;</h6>
             <input type="number" className="degInput" min="0" max="360" value={this.state.btcRotation} onChange={this.btcRotateChange}/>
             <input type="range" id="rotation" min="0" max="360" value={this.state.btcRotation} onChange={this.btcRotateChange}/>
           </div>
 
         <div className="setting" style={{ width: '100px' }}>
-            <h6>'B'	&#8736; : {this.state.bRotation}&#176;</h6>
-            <input type="number" className="degInput" min="0" max="360" value={this.state.bRotation} onChange={this.bRotateChange}/>
-            <input type="range" id="rotation" min="0" max="360" value={this.state.bRotation} onChange={this.bRotateChange}/>
+            <h6>'Overlay'	&#8736; : {this.state.overlayRotation}&#176;</h6>
+            <input type="number" className="degInput" min="0" max="360" value={this.state.overlayRotation} onChange={this.overlayRotateChange}/>
+            <input type="range" id="rotation" min="0" max="360" value={this.state.overlayRotation} onChange={this.overlayRotateChange}/>
           </div>
 
-          <div className="setting" style={{ width: '85px' }}>
-            <h6>Circles</h6>
+        <div className="setting" style={{ width: '100px' }}>
+            <h6><del>Coin</del></h6>
             <label className="switch">
-                <input type="checkbox" onChange={this.borderSwitch} />
+                <input type="checkbox" />
                 <span className="slider round"></span>
               </label>
           </div>
 
-          <div className="setting" style={{ width: '65px' }}>
-            <h6>Logo</h6>
+          <div className="setting" style={{ width: '60px' }}>
+            <h6>Circle</h6>
             <label className="switch">
-                <input type="checkbox" onChange={this.logoSwitch} />
+                <input type="checkbox" onChange={this.circleSwitch} checked={this.state.circle} />
                 <span className="slider round"></span>
               </label>
           </div>
 
-         <div className="setting" style={{ width: '85px' }}>
-            <h6>Gridlines</h6> 
+          <div className="setting" style={{ width: '60px' }}>
+            <h6><del>Grid</del></h6> 
             <label className="switch">
                 <input type="checkbox" onChange={this.borderSwitch} />
                 <span className="slider round"></span>
               </label> 
           </div>
 
-         <div className="setting" style={{ width: '85px' }}>
+          <div className="setting" style={{ width: '60px' }}>
+            <h6>Logo</h6>
+            <label className="switch">
+                <input type="checkbox" onChange={this.logoSwitch} checked={this.state.logo} />
+                <span className="slider round" onChange={this.logoSwitch}></span>
+              </label>
+          </div>
+
+          <div className="setting" style={{ width: '60px' }}>
+            <h6>Ƀ</h6>
+            <label className="switch">
+                <input type="checkbox" onChange={this.bSwitch}  checked={this.state.b}/>
+                <span className="slider round" onChange={this.bSwitch} ></span>
+              </label>
+          </div>
+
+         <div className="setting" style={{ width: '60px' }}>
             <h6>Crosshairs</h6> 
             <label className="switch">
                 <input type="checkbox" onChange={this.crossHairSwitch} checked={this.state.crossHair} />
@@ -252,7 +308,7 @@ class App extends Component {
           </div>
 
 
-         <div className="setting" style={{ width: '85px' }}>
+         <div className="setting" style={{ width: '60px' }}>
             <h6>Fibbonacci</h6> 
             <label className="switch">
                 <input type="checkbox" onChange={this.fibSwitch} checked={this.state.fib} />
@@ -262,17 +318,35 @@ class App extends Component {
 
           <div className="setting" style={{ width: '150px' }}>
             <h6>Underlay</h6>
-            <Dropdown options={underlays} onChange={this.onBackdropChange} value={this.state.underlay} placeholder="Select an Underlay" />
+            <Select
+                    name="form-field-name"
+                    clearable={false}
+                    value={this.state.underlay}
+                    onChange={this.onBackdropChange}
+                    options={underlays}
+                  />
           </div>
 
          <div className="setting" style={{ width: '150px' }}>
             <h6>Overlay</h6>
-            <Dropdown options={overlays} onChange={this.onOverlayChange} value={this.state.overlay} placeholder="Select an Overlay" />
+                  <Select
+                    name="form-field-name"
+                    clearable={false}
+                    value={this.state.overlay}
+                    onChange={this.onOverlayChange}
+                    options={overlays}
+                  />
           </div>
 
           <div className="setting" style={{ width: '150px' }}>
             <h6>Center Point</h6> 
-            <Dropdown options={centerPoints} onChange={this.onCenterChange} value={this.state.centerPoint} placeholder="Select a header option" /> 
+            <Select
+                    name="form-field-name"
+                    clearable={false}
+                    value={this.state.centerPoint}
+                    onChange={this.onCenterChange}
+                    options={centerPoints}
+                  />
           </div>
           
       </div>
@@ -282,18 +356,20 @@ class App extends Component {
       <div id="puzzleCont">
 
         <div id="words" style={{ transform: `rotate(${this.state.rotation}deg)` }}>
-            {puzzleWords.objs.map((word, i) => {
-              console.log(word);
-              return <div
-                        className="word" 
-                        key={i}
-                        style={{ 
-                          transform: `rotate(${word.deg}deg) translate(${word.x},${word.y})`,
-                          position: 'absolute',
-                          zIndex: 100000000000,
-                          fontSize: word.size
-                        }}>{word.word}</div>
-            })}
+            {
+            //   puzzleWords.objs.map((word, i) => {
+            //   console.log(word);
+            //   return <div
+            //             className="word" 
+            //             key={i}
+            //             style={{ 
+            //               transform: `rotate(${word.deg}deg) translate(${word.x},${word.y})`,
+            //               position: 'absolute',
+            //               zIndex: 100000000000,
+            //               fontSize: word.size
+            //             }}>{word.word}</div>
+            // })
+            }
       </div>
 
       <div id="x">&#x2612;</div>
@@ -309,7 +385,7 @@ class App extends Component {
         <div id="ac"></div>
       </div>
 
-      <div id="btcOrange" style={{ transform: `rotate(${this.state.bRotation}deg)` }}>
+      <div id="btcOrange" style={{ transform: `rotate(${this.state.bRotation}deg)`, opacity: this.state.b ? 0.5 : 0 }}>
         <img src={btcLogoSVG} alt="blah" />
       </div>
 
@@ -317,7 +393,9 @@ class App extends Component {
         <img src={fibSVG} alt="fib" />
       </div>
 
-      <div id="overlay" className={this.state.overlay}></div>
+      <div id="circleBorder" style={{ opacity: this.state.circle ? 1 : 0 }} ></div>
+
+      <div id="overlay" className={this.state.overlay} style={{ transform: `rotate(${this.state.overlayRotation}deg)` }}></div>
 
       <div id="puzzle" className={this.state.underlay} style={{ transform: `rotate(${this.state.rotation}deg)` }}></div>
 
