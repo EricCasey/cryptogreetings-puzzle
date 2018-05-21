@@ -1,0 +1,5 @@
+const eightWords = {
+    words : [
+        "use","1","fee","1","end","1","air","1","gap","1","try","2","run","2","two","3","key","6","tail","1","race","1","sign","1","find","1","wait","1","want","1","grow","1","help","1","main","1","come","1","cash","1","just","1","like","1","drop","1","post","1","rely","1","pool","1","cost","2","size","2","able","2","pair","2","gold","2","best","2","save","2","know","2","zero","3","must","5","work","6","time","6","next","8","stock","1","group","1","solve","1","speed","1","early","1","agree","1","model","1","allow","2","place","2","party","2","valid","2","order","3","since","3","first","3","later","3","power","4","proof","7","entire","1","casual","1","modify","1","credit","1","course","1","either","1","online","1","attack","1","person","1","reveal","2","effort","4","verify","5","system","9","current","1","satisfy","1","process","1","provide","1","correct","1","express","1","ability","1","problem","7","frequent","1","interest","1","physical","1"
+    ]
+}

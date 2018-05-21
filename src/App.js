@@ -95,7 +95,10 @@ class App extends Component {
   onBackdropChange(e) { this.setState({ underlay: e.value }) }
 
   // Change the Overlay
-  onOverlayChange(e) {  this.setState({ overlay: e.value }) }
+  onOverlayChange(e) {  
+    let overlay = this.state.overlay + " " + e.value
+    this.setState({ overlay }) 
+  }
 
   // Toggle Crosshairs
   crossHairSwitch() { this.setState({ crossHair: this.state.crossHair ? false : true }) }
@@ -223,6 +226,14 @@ class App extends Component {
           },
           {
             value: 'overlay5',
+            label: 'u/casey_works'
+          },
+          {
+            value: 'overlay6',
+            label: 'u/casey_works'
+          },
+          {
+            value: 'overlay7',
             label: 'u/casey_works'
           }
          ]
@@ -394,8 +405,10 @@ class App extends Component {
       </div>
 
       <div id="circleBorder" style={{ opacity: this.state.circle ? 1 : 0 }} ></div>
-
-      <div id="overlay" className={this.state.overlay} style={{ transform: `rotate(${this.state.overlayRotation}deg)` }}></div>
+        {this.state.overlay.split(' ').map((over,p) => {
+          console.log(p, over)
+          return <div id="overlay" className={over} style={{ transform: `rotate(${this.state.overlayRotation}deg)` }}></div>
+        })}
 
       <div id="puzzle" className={this.state.underlay} style={{ transform: `rotate(${this.state.rotation}deg)` }}></div>
 

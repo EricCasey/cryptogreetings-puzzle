@@ -410,6 +410,12 @@ html, body {
     .App #puzzleCont .overlay5 {
       background: url("https://i.imgur.com/PLCKGVH.png");
       background-size: contain; }
+    .App #puzzleCont .overlay6 {
+      background: url("https://i.imgur.com/QZAYUn9.png");
+      background-size: contain; }
+    .App #puzzleCont .overlay7 {
+      background: url("https://i.imgur.com/F1bS6Mv.png");
+      background-size: contain; }
 
 /* @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
