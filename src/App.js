@@ -28,8 +28,10 @@ class App extends Component {
       crossHair: false,
       fib: false,
       b: true,
+      invert: false,
       logo: true,
       circle: true,
+      grid: true,
       btcRotation: 0,
       bRotation: 0,
       overlayRotation: 0,
@@ -51,6 +53,8 @@ class App extends Component {
     this.logoSwitch = this.logoSwitch.bind(this);
     this.reset = this.reset.bind(this);
     this.overlayRotateChange = this.overlayRotateChange.bind(this);
+    this.invertSwitch = this.invertSwitch.bind(this);
+    this.gridSwitch = this.gridSwitch.bind(this);
   }
 
   reset() {
@@ -66,6 +70,7 @@ class App extends Component {
       fib: false,
       logo: true,
       b: true,
+      grid: false,
       circle: true,
       btcRotation: 0,
       bRotation: 0,
@@ -114,6 +119,13 @@ class App extends Component {
 
   // Add / Remove the Round Border
   circleSwitch() { this.setState({ circle: this.state.circle ? false : true }) }
+
+  // Invert Switch
+  invertSwitch() { this.setState({ invert: this.state.invert ? false : true }) }
+
+  // Gird Switch
+  gridSwitch() { this.setState({ grid: this.state.grid ? false : true }) }
+
 
   // Layout Control
   onLayoutChange(e) {
@@ -235,7 +247,19 @@ class App extends Component {
           {
             value: 'overlay7',
             label: 'u/casey_works'
-          }
+          },
+          {
+            value: 'overlay8',
+            label: 'u/tyfeonas'
+          },
+          {
+            value: 'overlay9',
+            label: 'u/mismuparoololi'
+          },
+          {
+            value: 'o-focus',
+            label: 'u/casey_works'
+          },
          ]
 
 
@@ -252,7 +276,7 @@ class App extends Component {
           <div id="reset">RESET</div>
           </div>
 
-          <div className="setting" style={{ width: '150px' }}>
+          <div className="setting" style={{ width: '100px' }}>
             <h6>Puzzle 	&#8736; : {this.state.rotation}&#176;</h6>
             <input type="number" className="degInput" min="0" max="360" value={this.state.rotation} onChange={this.rotateChange}/>
             <input type="range" id="rotation" min="0" max="360" value={this.state.rotation} onChange={this.rotateChange}/>
@@ -270,10 +294,10 @@ class App extends Component {
             <input type="range" id="rotation" min="0" max="360" value={this.state.overlayRotation} onChange={this.overlayRotateChange}/>
           </div>
 
-        <div className="setting" style={{ width: '100px' }}>
-            <h6><del>Coin</del></h6>
+        <div className="setting" style={{ width: '60px' }}>
+            <h6>Invert</h6>
             <label className="switch">
-                <input type="checkbox" />
+                <input type="checkbox" onChange={this.invertSwitch} checked={this.state.invert} />
                 <span className="slider round"></span>
               </label>
           </div>
@@ -287,15 +311,15 @@ class App extends Component {
           </div>
 
           <div className="setting" style={{ width: '60px' }}>
-            <h6><del>Grid</del></h6> 
+            <h6>Grid</h6> 
             <label className="switch">
-                <input type="checkbox" onChange={this.borderSwitch} />
+                <input type="checkbox" onChange={this.gridSwitch} checked={this.state.grid} />
                 <span className="slider round"></span>
               </label> 
           </div>
 
           <div className="setting" style={{ width: '60px' }}>
-            <h6>Logo</h6>
+            <h6>Coin</h6>
             <label className="switch">
                 <input type="checkbox" onChange={this.logoSwitch} checked={this.state.logo} />
                 <span className="slider round" onChange={this.logoSwitch}></span>
@@ -364,7 +388,7 @@ class App extends Component {
 
 <br/>
 
-      <div id="puzzleCont">
+      <div id="puzzleCont" style={{ filter: `invert(${this.state.invert ? 1 : 0 })` }}>
 
         <div id="words" style={{ transform: `rotate(${this.state.rotation}deg)` }}>
             {
@@ -383,13 +407,13 @@ class App extends Component {
             }
       </div>
 
-      <div id="x">&#x2612;</div>
-
       <div id="btc" style={{ 
                       transform: `rotate(${this.state.btcRotation}deg)`,
                       opacity: this.state.logo ? 1 : 0 }}>
           <img src="https://i.imgur.com/XklTJEN.png" alt="blah" />
       </div>
+
+      <div id="grid" style={{ opacity: this.state.grid ? 1 : 0 }}></div>
 
       <div id="crossHair" style={{ opacity: this.state.crossHair ? 1 : 0 }}>
         <div id="up"></div>

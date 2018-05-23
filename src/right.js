@@ -28,9 +28,11 @@ class Right extends Component {
           <li>"Code easily, attack early"</li>
           <li>"Lost transaction costs almost users."</li>
           <li>"00212121"</li>
-          <li>"+1"</li>
+          <li><del>"+1"</del>"+1"</li>
           <li>"It's solvable."</li>
           <li>"5 orientations between -60 & 60deg"</li>
+          <li>"-1 (hint, not downvoting)"</li>
+          <li>"To triumph one must look within. To Infinity and beyond. When you are close to home. X marks the spot."</li>
         </ol>
         <h2>Pairs</h2>
         <ul>
@@ -52,6 +54,7 @@ class Right extends Component {
           <li>https://www.jasondavies.com/wordcloud/</li>
           <li>https://dev.w3.org/html5/html-author/charref</li>
           <li>https://bitcoinsymbol.org/</li>
+          <li>Ldquest  not a clue</li>
         </ul>
         </div>
 

@@ -105,7 +105,8 @@ html, body {
     width: 30px;
     height: calc(100% - 45px);
     right: 0px;
-    text-align: left; }
+    text-align: left;
+    overflow: scroll; }
     .App .Right h2, .App .Right ol, .App .Right li, .App .Right .hintBox {
       pointer-events: none;
       transition: 0.5s all;
@@ -259,7 +260,8 @@ html, body {
     top: 0px;
     left: 200px;
     position: fixed;
-    display: flex; }
+    display: flex;
+    transition: 0.5s all; }
     .App #puzzleCont #words {
       width: 1080px;
       height: 720px;
@@ -269,12 +271,13 @@ html, body {
       padding: 0; }
       .App #puzzleCont #words .word {
         color: red; }
-    .App #puzzleCont #x {
-      color: red;
-      font-size: 100px;
-      position: absolute;
-      left: 100px;
-      bottom: 100px; }
+    .App #puzzleCont #grid {
+      width: 1080px;
+      height: 720px;
+      z-index: 100;
+      margin: 60px 0 0 -1080px;
+      background: url("https://cms-k12oer-staging.s3.amazonaws.com/uploads/pictures/8/8.1.A2.Image.01.png");
+      transition: 0.3s all; }
     .App #puzzleCont #btc {
       width: 660px;
       height: 660px;
@@ -415,6 +418,15 @@ html, body {
       background-size: contain; }
     .App #puzzleCont .overlay7 {
       background: url("https://i.imgur.com/F1bS6Mv.png");
+      background-size: contain; }
+    .App #puzzleCont .overlay8 {
+      background: url("https://i.imgur.com/68FRuLH.png");
+      background-size: contain; }
+    .App #puzzleCont .overlay9 {
+      background: url("https://i.imgur.com/iQ71L2G.png");
+      background-size: contain; }
+    .App #puzzleCont .o-focus {
+      background: url("https://i.imgur.com/b5eNQ6E.png");
       background-size: contain; }
 
 /* @keyframes App-logo-spin {

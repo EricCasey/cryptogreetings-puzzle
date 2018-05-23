@@ -130,6 +130,7 @@ html, body {
     height: calc(100% - 45px);
     right: 0px;
     text-align: left;
+    overflow: scroll;
     h2, ol, li, .hintBox {
       pointer-events: none;
       transition: 0.5s all;
@@ -313,6 +314,7 @@ h5 {
     left: 200px;
     position: fixed;
     display: flex;
+    transition: 0.5s all;
     #words {
       width: 1080px;
       height: 720px;
@@ -324,13 +326,14 @@ h5 {
         color: red;
       }
     }
-    #x {
-      color: red;
-      font-size: 100px;
-      position: absolute;
-      left: 100px;
-      bottom: 100px;
-    }
+  #grid {
+    width: 1080px;
+    height: 720px;
+    z-index: 100;
+    margin: 60px 0 0 -1080px;
+    background: url('https://cms-k12oer-staging.s3.amazonaws.com/uploads/pictures/8/8.1.A2.Image.01.png');
+    transition: 0.3s all;
+  }
     #btc {
       width: 660px;
       height: 660px;
@@ -510,6 +513,18 @@ h5 {
     }
     .overlay7 {
       background: url('https://i.imgur.com/F1bS6Mv.png');
+      background-size: contain;
+    }
+    .overlay8 {
+      background: url('https://i.imgur.com/68FRuLH.png');
+      background-size: contain;
+    }
+    .overlay9 {
+      background: url('https://i.imgur.com/iQ71L2G.png');
+      background-size: contain;
+    }
+    .o-focus {
+      background: url('https://i.imgur.com/b5eNQ6E.png');
       background-size: contain;
     }
   }
